@@ -1,0 +1,86 @@
+@import url("http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css");
+
+html {
+	 /* From here on out: 1em = 10px. Easy peasy. */
+   font-size: 62.5%; 
+}
+
+html {
+	font-family: verdana, arial, helvetica, sans-serif;
+	line-height: 18px;
+	background: #222;
+	color: #ff9;
+}
+
+h1 {
+	font-size: 1.8em;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1.4em;
+}
+
+
+/* header */
+#hd {
+	height: 100px;
+	background-color: #D6140C;
+	text-align: center;
+}
+
+
+/* footer */
+#ft {
+	height: 100px;
+	padding: 1em .5em;
+}
+
+
+
+/* body */
+#bd {
+	background: #FFFFF0;
+	color: #222;
+	padding: 2em 1em;
+}
+
+
+
+/* custom list styles */
+
+ul.people h2 {
+	display: inline;
+}
+
+li.person {
+	width: 100%;
+}
+
+ul.gifts {
+	margin-left: 2em;
+}
+
+li.gift {
+	background-color: #ccc;
+	padding: .5em;
+}
+
+li.bought {
+	background-color: #0C3;
+}
+
+li.unknown {
+	background-color: #F66;
+}
+
+.gift_controls {
+	position: absolute;
+}
+
+
+
+

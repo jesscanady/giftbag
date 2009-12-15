@@ -1,0 +1,45 @@
+<form action="<%= people_url %>" method="POST">
+	<input type="hidden" name="_method" value="POST" />
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+	<p>I can get <input type="text" name="person[name]" />
+		<input type="text" name="gift[name]" />
+		<input type="submit" value="Yeah, they'd like that!" />
+	</p>
+</form>
+
+
+<% unless @people.empty? %>
+	<ul class="people">
+	<% @people.each do |p| %>
+		
+		<li class="person" onmouseover="$(this).select('span.person_controls').each(function(e){e.show()})" 
+			onmouseout="$(this).select('span.person_controls').each(function(e){e.hide()})">
+			<h2><%=h p.name %></h2>
+			<span class="person_controls" style="display: none"><%= link_to 'delete', person_url(p), :method => 'delete', :confirm => "Really remove #{p.name}?" %></span>
+			
+			<ul class="gifts">
+				<% unless p.gifts.empty? %>
+					<% p.gifts.each do |g| %>
+						<li class="gift <%= 'bought' if g.bought? %>"
+							onmouseover="$(this).select('span.gift_controls').each(function(e){e.show()})" 
+							onmouseout="$(this).select('span.gift_controls').each(function(e){e.hide()})">
+							<%=h g.name %>
+							<span class="gift_controls" style="display: none">
+								<%= link_to 'delete', gift_url(p, g), :method => 'delete', :confirm => 'Forget this item?' %>
+								<%= link_to (g.bought? ? 'un-buy' : 'bought it!'), buy_gift_url(p, g), :method => 'put' %>
+							</span>
+						</li>
+					<% end %>
+				<% else %>
+						<li class="gift unknown">You don't know what to get <%=h p.name %> yet...</li>
+				<% end %>
+			</ul>
+		</li>
+		
+	<% end %>
+	</ul>
+<% else %>
+	<p>Add a person by completing the sentence above.</p>
+	<p>Tip: you can leave the gift idea blank.</p>
+<% end %>
+	
