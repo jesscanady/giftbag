@@ -11,7 +11,10 @@
 </head>
 <body>
 	<div id="doc" class="yui-t4">
-		<div id="hd" role="banner"><h1>Some Kinda Gift List Thing</h1></div>
+		<div id="hd" role="banner">
+			<h1>Some Kinda Gift List Thing</h1>
+			<h2>Pre-alpha. How'd you find this thing?</h2>
+		</div>
 		<div id="bd" role="main">
 			<div id="yui-main">
 				<div class="yui-b"><div role="main" class="yui-g">
@@ -20,13 +23,15 @@
 			</div>
 		</div>
 		
-		<% if @content_for_sidebar %>
-		<div role="navigation" class="yui-b"><%= yield :sidebar %></div>
-		<% end %>
+
+		<div role="navigation" class="yui-b">
+			<p><%= link_to 'Sign out', logout_url %></p>
+			<%= yield :sidebar %>
+		</div>
 
 	</div>
 	<div id="ft" role="contentinfo">
-		Jon Canady, 2009
+		Jon Canady. jon (at) joncanady.com
 	</div>
 </div>
 </body>
