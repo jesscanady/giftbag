@@ -1,0 +1,9 @@
+<li class="gift <%= 'bought' if gift.bought? %>"
+	onmouseover="$(this).select('span.gift_controls').each(function(e){e.show()})" 
+	onmouseout="$(this).select('span.gift_controls').each(function(e){e.hide()})">
+	<%=h gift.name %>
+	<span class="gift_controls" style="display: none">
+		<%= link_to 'delete', gift_url(person, gift), :method => 'delete', :confirm => 'Forget this item?' %>
+		<%= link_to (gift.bought? ? 'un-buy' : 'bought it!'), buy_gift_url(person, gift), :method => 'put' %>
+	</span>
+</li>

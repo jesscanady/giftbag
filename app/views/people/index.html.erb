@@ -17,27 +17,26 @@
 			<h2><%=h p.name %></h2>
 			<span class="person_controls" style="display: none"><%= link_to 'delete', person_url(p), :method => 'delete', :confirm => "Really remove #{p.name}?" %></span>
 			
-			<ul class="gifts">
+			<ul class="gifts" id="gifts_for_<%= p.id %>">
+				
 				<% unless p.gifts.empty? %>
 					<% p.gifts.each do |g| %>
-						<li class="gift <%= 'bought' if g.bought? %>"
-							onmouseover="$(this).select('span.gift_controls').each(function(e){e.show()})" 
-							onmouseout="$(this).select('span.gift_controls').each(function(e){e.hide()})">
-							<%=h g.name %>
-							<span class="gift_controls" style="display: none">
-								<%= link_to 'delete', gift_url(p, g), :method => 'delete', :confirm => 'Forget this item?' %>
-								<%= link_to (g.bought? ? 'un-buy' : 'bought it!'), buy_gift_url(p, g), :method => 'put' %>
-							</span>
-						</li>
+						<%= render :partial => 'gift', :locals => {:gift => g, :person => p} %>
 					<% end %>
 				<% else %>
 						<li class="gift unknown">You don't know what to get <%=h p.name %> yet...</li>
 				<% end %>
+				
+				
+
 			</ul>
+			
+			
 		</li>
 		
 	<% end %>
 	</ul>
+	
 <% else %>
 	<p>Add a person by completing the sentence above.</p>
 	<p>Tip: you can leave the gift idea blank.</p>
