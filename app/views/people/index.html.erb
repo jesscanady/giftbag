@@ -10,30 +10,8 @@
 
 <% unless @people.empty? %>
 	<ul class="people">
-	<% @people.each do |p| %>
-		
-		<li class="person" onmouseover="$(this).select('span.person_controls').each(function(e){e.show()})" 
-			onmouseout="$(this).select('span.person_controls').each(function(e){e.hide()})">
-			<h2><%=h p.name %></h2>
-			<span class="person_controls" style="display: none"><%= link_to 'delete', person_url(p), :method => 'delete', :confirm => "Really remove #{p.name}?" %></span>
-			
-			<ul class="gifts" id="gifts_for_<%= p.id %>">
-				
-				<% unless p.gifts.empty? %>
-					<% p.gifts.each do |g| %>
-						<%= render :partial => 'gift', :locals => {:gift => g, :person => p} %>
-					<% end %>
-				<% else %>
-						<li class="gift unknown">You don't know what to get <%=h p.name %> yet...</li>
-				<% end %>
-				
-				
-
-			</ul>
-			
-			
-		</li>
-		
+	<% @people.each do |person| %>
+		<%= render person %>
 	<% end %>
 	</ul>
 	

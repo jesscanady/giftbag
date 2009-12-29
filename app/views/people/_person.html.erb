@@ -1,0 +1,24 @@
+<li class="person" onmouseover="$(this).select('span.person_controls').each(function(e){e.show()})" 
+onmouseout="$(this).select('span.person_controls').each(function(e){e.hide()})">
+
+	<h2><%=h person.name %></h2>
+
+	<span class="person_controls" style="display: none">
+		<%= link_to 'delete', person_url(person), 
+		:method => 'delete', 
+		:confirm => "Really remove #{person.name}?" %>
+	</span>
+
+	<ul class="gifts" id="gifts_for_<%= person.id %>">
+
+		<% unless person.gifts.empty? %>
+		<% person.gifts.each do |gift| %>
+		<%= render :partial => 'gift', :locals => {:gift => gift, :person => person} %>
+		<% end %>
+		<% else %>
+		<li class="gift unknown">You don't know what to get <%=h person.name %> yet...</li>
+		<% end %>
+
+	</ul>
+
+</li>
