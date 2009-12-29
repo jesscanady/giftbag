@@ -15,7 +15,12 @@ class PeopleController < ApplicationController
   def create
     @person = Person.for_user(current_user.id).find_or_create_by_name(params[:person])
     @person.gifts.create(params[:gift]) unless params[:gift][:name].andand.empty?
-    redirect_to people_url
+    
+    respond_to do |wants|
+      wants.html { redirect_to people_url }
+      wants.js { render :text }
+    end
+
   end
   
   def edit

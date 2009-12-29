@@ -1,0 +1,8 @@
+
+<% remote_form_for :gift, :url => gifts_url(person), 
+	:update => "gifts_for_#{person.id}", 
+	:position => :bottom do |f| %>
+	<%= f.hidden_field :person_id %>
+	I could get <%=h person.name %> <%= f.text_field :name %> <%= f.submit 'Yeah!' %> 
+	<%= link_to_function "done adding", "toggle_new_gift(#{person.id})" %>
+<% end %>
