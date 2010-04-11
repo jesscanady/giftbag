@@ -8,7 +8,7 @@ So, I wrote this.
 
 ## Usage
 
-Complete the sentence at the top: "I can get <person> <something they want>". Their name will appear in the list, along with the gift idea. You can mark the gift as bought, or delete it if it was a bad idea.
+Complete the sentence at the top: "I can get &lt;person&gt; &lt;something they want&gt;". Their name will appear in the list, along with the gift idea. You can mark the gift as bought, or delete it if it was a bad idea.
 	
 ## TODO
 
