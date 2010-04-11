@@ -19,15 +19,17 @@ onmouseout="$(this).select('span.person_controls').each(function(e){e.hide()})">
 		<li class="gift unknown">You don't know what to get <%=h person.name %> yet...</li>
 		<% end %>
 	</ul>
-	
+	<br />
+
 	<ul class="gifts controls">
 		<li id="new_gift_link_for_<%= person.id %>">
-			<%= link_to_function "New gift", "toggle_new_gift(#{person.id})" %>
+			<%= link_to_function "New gift", "toggle_new_gift(#{person.id})", :class => 'button' %>
 		</li>
 		<li class="new_gift" id="new_gift_for_<%= person.id %>" style="display: none;">
 			<%= render :partial => 'gifts/new', :locals => {:person => person} %>
 		</li>
 
 	</ul>
-
+	<br />
+	<br />
 </li>

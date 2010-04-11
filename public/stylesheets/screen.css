@@ -12,6 +12,22 @@ html {
 	color: #ff9;
 }
 
+
+a.button
+{
+ 
+	color: black;
+	padding: .5em;
+	background: #ccc;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-decoration: none;
+	margin-top: 10em;
+	
+}
+
+
 h1 {
 	font-size: 1.8em;
 }

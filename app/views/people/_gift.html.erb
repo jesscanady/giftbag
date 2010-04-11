@@ -5,6 +5,9 @@
 	<span class="gift_controls" style="display: none">
 		<%= link_to_remote 'delete', :url => gift_url(person, gift), :method => 'delete', 
 			:confirm => 'Forget this item?', :success => "$('gift_#{gift.id}').fade()" %>
-		<%= link_to (gift.bought? ? 'un-buy' : 'bought it!'), buy_gift_url(person, gift), :method => 'put' %>
+		<%= link_to_remote (gift.bought? ? 'un-buy' : 'bought it'), 
+			:id => "bought_#{gift.id}",
+			:url => buy_gift_url(person, gift), :method => 'put', 
+			:success => "toggle_bought(#{gift.id}, #{!gift.bought?})" %>
 	</span>
 </li>

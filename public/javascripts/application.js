@@ -6,3 +6,10 @@ function toggle_new_gift(id)
 	$('new_gift_link_for_' + id).toggle();
 	$('new_gift_for_' + id).toggle();
 }
+
+function toggle_bought(id, bought)
+{
+	gift = $('gift_' + id)
+	
+	bought ? gift.addClassName('bought') : gift.removeClassName('bought');
+}
